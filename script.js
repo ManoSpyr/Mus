@@ -81,4 +81,17 @@ let allSongs = [
 const audio = new Audio(); //create a new HTML5 audio element.
 let userData = {
   songs: [...allSongs],
+  currentSong: null,
+  songCurrentTime: 0,
 };
+const renderSongs = (array) => {
+  const songsHTML = array.map((song) => {
+    return `<li id="song-${song.id}" class="playlist-song">
+              ${song.title} - ${song.artist}
+            </li>`;
+  });
+};
+
+/*const printGreeting = () => { console.log("Hello there!") };
+const printMessage = (org) => { console.log(`${org} is awesome!`) }
+printMessage('freeCodeCamp')*/

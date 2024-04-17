@@ -103,4 +103,5 @@ const renderSongs = (array) => {
     .join(" "); // concatenate the elements as a single string
   playlistSongs.innerHTML = songsHTML;
 };
+const sortSongs = () => {};
 renderSongs(userData?.songs);

@@ -84,6 +84,20 @@ let userData = {
   currentSong: null,
   songCurrentTime: 0,
 };
+const playSong = (id) => {
+  const song = userData?.songs.find((song) => song.id === id); //retrieve the song by id
+  audio.src = song.src; //where to find the audio data for the selected song.
+  audio.title = song.title; //what to display as the title of the song
+  if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
+    audio.currentTime = 0;
+  } else {
+    audio.currentTime = userData?.songCurrentTime;
+  }
+  userData.currentSong = song;
+  playButton.classList.add("playing"); // This will look for the class "playing" in the CSS file and add it to the playButton element.
+  audio.play();
+};
+
 const renderSongs = (array) => {
   const songsHTML = array
     .map((song) => {
@@ -116,3 +130,4 @@ const sortSongs = () => {
   return userData?.songs;
 };
 renderSongs(sortSongs());
+add();

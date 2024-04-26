@@ -122,6 +122,9 @@ const renderSongs = (array) => {
     .join(" "); // concatenate the elements as a single string
   playlistSongs.innerHTML = songsHTML;
 };
+const getCurrentSongIndex = () => {
+  return userData?.songs.indexOf(userData?.currentSong);
+};
 playButton.addEventListener("click", () => {
   if (!userData?.currentSong) {
     playSong(userData?.songs[0].id); //This will ensure the first song in the playlist is played first.
